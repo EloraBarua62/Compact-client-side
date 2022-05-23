@@ -9,13 +9,13 @@ const Banner = () => {
     return (
         <Carousel infiniteLoop useKeyboardArrows autoPlay interval={5000} showThumbs={false} showStatus={false}>
             <div>
-                <img src={image1} className='h-[600px]'/>
+                <img src={image1} className='h-[300px] md:h-[500px]'/>
             </div>
             <div>
-                <img src={image2} className='h-[600px]' />
+                <img src={image2} className='h-[300px] md:h-[500px]' />
             </div>
             <div>
-                <img src={image1} className='h-[600px]'/>
+                <img src={image1} className='h-[300px] md:h-[500px]'/>
                 
             </div>
         </Carousel>
