@@ -6,7 +6,7 @@ const useParts = () =>{
         fetch(`http://localhost:4000/parts`)
         .then(res => res.json())
         .then(data => setParts(data))
-    },[parts])
+    },[])
     return [parts];
 }
 
