@@ -15,10 +15,12 @@ const Header = () => {
 
     const menuItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        {/* <li><NavLink to='/dashboard'>Dashboard</NavLink></li> */}
         <li>
         {
-            user ?
+            user ?<>
             <button onClick={handleLogout}>Log out</button>
+            <NavLink to='/dashboard'>Dashboard</NavLink></>
             :
             <NavLink to='/login'>Log in</NavLink>
         }
@@ -44,7 +46,10 @@ const Header = () => {
                 </ul>
             </div>
             <div class="navbar-end">
-                <h1>Welcome <span className='text-blue-700'>{user.displayName}</span></h1>
+                <h1 className='text-blue-700 pl-2'>{user?.displayName}</h1>
+                <label tabindex="0" class="btn btn-ghost lg:hidden" for="dashboard-sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
             </div>
             
         </div>
