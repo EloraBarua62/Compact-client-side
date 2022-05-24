@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading';
+import google from '../../images/GoogleIcon.ico'
 
 const Signup = () => {
     const [
@@ -13,9 +14,12 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
 
-    const [message,SetMessage] = useState('');
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
+    const [message,SetMessage] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+
     const onSubmit = async data => {
         const email = data.email;
         const password = data.password;
@@ -32,8 +36,11 @@ const Signup = () => {
         
     };
 
-    if(loading)
+    if(loading || gloading)
         return <Loading></Loading>;
+
+    if(error || gerror)
+        SetMessage(error.message);
 
     return (
         <div className='flex justify-center items-center h-screen'>
@@ -116,6 +123,12 @@ const Signup = () => {
                             <p className='text-md font-semibold text-red-700'>{message && message}</p>
                         </div>
                     </form>
+                    <div class="divider-vertical">OR</div>
+                    <div>
+                        <button onClick={() => signInWithGoogle()}>
+                            <img src={google} alt="" className='w-10 h-10 ' />
+                        </button>
+                    </div>
                 </div>
             </div>
 
