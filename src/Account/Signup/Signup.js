@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import Loading from '../../Shared/Loading';
 import google from '../../images/GoogleIcon.ico'
 
@@ -15,6 +15,7 @@ const Signup = () => {
     ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
 
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
     const [message,SetMessage] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,7 +28,8 @@ const Signup = () => {
         console.log(data);
         if(password === confirm_password){
             SetMessage('');
-            createUserWithEmailAndPassword(email,password);
+            await createUserWithEmailAndPassword(email,password);
+            await updateProfile({ displayName: data.name });
             toast.success('User created successfully');
         }
         else{
@@ -131,7 +133,7 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
-
+           
         </div>
     );
 };

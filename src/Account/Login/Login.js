@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
 import google from '../../images/GoogleIcon.ico';
@@ -24,6 +24,7 @@ const Login = () => {
     const onSubmit = data => {
         const email = data.email
         const password = data.password;
+        
         signInWithEmailAndPassword(email,password);
     };
 
@@ -95,7 +96,7 @@ const Login = () => {
                             <img src={google} alt="" className='w-8 h-8' />
                         </button>
                     </div>
-                    
+                    <Link to='/signup'>New to COMPACT?</Link>
                     
                 </div>
             </div>

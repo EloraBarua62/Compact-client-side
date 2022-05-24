@@ -5,9 +5,10 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Login from './Account/Login/Login'
 import Signup from './Account/Signup/Signup'
-import { ToastContainer } from 'react-toastify';
-import Purcase from './Pages/Purcase/Purcase';
 import RequireAuth from './Shared/RequireAuth/RequireAuth';
+import Purchase from './Pages/Purchase/Purchase';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -15,17 +16,16 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/purcase' element={
+        <Route path='/purchase/:id' element={
           <RequireAuth>
-            <Purcase></Purcase>
+            <Purchase></Purchase>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
-      <ToastContainer />
       <Footer></Footer>
-     
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

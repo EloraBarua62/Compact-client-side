@@ -43,6 +43,9 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
+            <div class="navbar-end">
+                <h1>Welcome <span className='text-blue-700'>{user.displayName}</span></h1>
+            </div>
             
         </div>
     );
