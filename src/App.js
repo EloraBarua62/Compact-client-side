@@ -10,9 +10,14 @@ import Purchase from './Pages/Purchase/Purchase';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import MyOrders from './Pages/Dashboard/MyOrders';
-import AddReview from './Pages/Dashboard/AddReview';
+import MyOrders from './Pages/Dashboard/NormalUser/MyOrders';
+import AddReview from './Pages/Dashboard/NormalUser/AddReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/NormalUser/Payment';
+import ManageOrders from './Pages/Dashboard/Admin/ManageOrders';
+import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct';
+import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin';
 
 function App() {
   return (
@@ -29,6 +34,11 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='add_review' element={<AddReview></AddReview>}></Route>
           <Route path='my_profile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          <Route path='manage_orders' element={<ManageOrders></ManageOrders>}></Route>
+          <Route path='manage_products' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='add_product' element={<AddProduct></AddProduct>}></Route>
+          <Route path='make_admin' element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='signup' element={<Signup></Signup>}></Route>

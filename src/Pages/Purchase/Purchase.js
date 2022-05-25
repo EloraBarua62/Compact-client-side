@@ -21,8 +21,11 @@ const Purchase = () => {
         const quantity = event.target.quantity.value;
 
         const order = {
-            name:user.displayName,
-            email:user.email,
+            partsId: part._id,
+            partsImg: part.img,
+            partsName : part.name,
+            name : user.displayName,
+            email : user.email,
             location: location,
             phone: phone,
             quantity:quantity
@@ -40,7 +43,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast('Your order placed');
+                toast('Your order has been placed');
             })
     }
 
