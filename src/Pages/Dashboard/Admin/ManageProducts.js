@@ -48,21 +48,21 @@ const ManageProducts = () => {
                             <th>Serial no</th>
                             <th>Product ID</th>
                             <th>Product name</th>
-                            {/* <th>Product image</th> */}
+                            <th>Product image</th>
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            parts.map((part, index) => <tr>
+                            parts.map((part, index) => <tr class="hover">
 
                                 <th>{index + 1}</th>
                                 <td>{part._id}</td>
                                 <td>{part.name}</td>
                                 <td>
                                     <div class="avatar">
-                                        <div class="w-20 rounded">
+                                        <div class="w-20 rounded border-2">
                                             <img src={part.img} alt="compact" />
                                         </div>
                                     </div>
