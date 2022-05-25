@@ -11,8 +11,8 @@ const MyOrders = () => {
 
     const { data: orders, isLoading, refetch } = useQuery('my_order', () => fetch(url).then(res => res.json())) 
 
-    if(isLoading)
-        return <Loading></Loading>
+    if(isLoading){
+        return <Loading></Loading>}
     return (
         <div>
             <h1 className='text-xl font-bold'>All orders list</h1>

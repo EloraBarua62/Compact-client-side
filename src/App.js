@@ -18,6 +18,7 @@ import ManageOrders from './Pages/Dashboard/Admin/ManageOrders';
 import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct';
 import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin';
+import NotFound from './Shared/NotFound';
 
 function App() {
   return (
@@ -42,7 +43,9 @@ function App() {
         </Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='signup' element={<Signup></Signup>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      
       <Footer></Footer>
       <ToastContainer></ToastContainer>
     </div>

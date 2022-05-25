@@ -31,6 +31,7 @@ const Signup = () => {
             await createUserWithEmailAndPassword(email,password);
             await updateProfile({ displayName: data.name });
             toast.success('User created successfully');
+
         }
         else{
             SetMessage("Password didn't match");
