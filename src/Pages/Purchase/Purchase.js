@@ -60,10 +60,10 @@ const Purchase = () => {
     // };
 
     return (
-        <div className='flex-col justify-center my-10'>
-            <h1 className='text-3xl font-bold'>Product Details</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                <img src={part.img} alt="" />
+        <div className='flex-col justify-center m-10'>
+            <h1 className='text-3xl font-bold text-red-700 mb-5'>Product Details</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 border-2 rounded-md shadow-2xl'>
+                <img src={part.img} alt=""/>
                 <div className='my-auto'>
                     <h1 className='text-2xl font-medium'>Product name : {part.name}</h1>
                     <p className='text-xl font-medium'>Description : {part.description}</p>
@@ -74,7 +74,7 @@ const Purchase = () => {
             </div>
 
 
-            <div className='w-full flex justify-center'>
+            <div className='w-full flex justify-center mt-36'>
                 <div class="card w-1/2 bg-base-100 shadow-xl">
                     <div class="card-body">
                         <h3 class="font-bold text-lg">Purcheser Information</h3>

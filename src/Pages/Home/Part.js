@@ -18,7 +18,7 @@ const Part = ({part}) => {
                 <h2 class="text-md">Availability : {part.available_quantity}</h2>
                 <h2 class="text-md">Price : {part.price}</h2>
                 <div class="card-actions justify-start">
-                    <button onClick={()=>handlePurchase(part._id)} class="btn btn-primary">Purcase</button>
+                    <button onClick={() => handlePurchase(part._id)} class="py-2 px-3 bg-red-600 rounded-md text-white font-medium text-lg">Purcase</button>
                 </div>
             </div>
         </div>
