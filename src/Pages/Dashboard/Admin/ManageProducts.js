@@ -12,7 +12,7 @@ const ManageProducts = () => {
 
     // const handleDelete = part => {
     //     setRemovePart(part);
-    // const url = `http://localhost:4000/manage_products/${id}`;
+    // const url = `https://shielded-castle-46219.herokuapp.com/manage_products/${id}`;
     // let remove = false;
     // <div>
     //     <input type="checkbox" id="my-modal-6" class="modal-toggle" />

@@ -9,7 +9,7 @@ const Part = ({part}) => {
         navigate(`/purchase/${id}`)
     }
     return (
-        <div class="card card-compact w-60 bg-base-100 shadow-xl">
+        <div class="card card-compact w-60 bg-base-100 shadow-xl shadow-purple-400">
             <figure><img src={part.img} alt="Shoes" /></figure>
             <div class="card-body text-left">
                 <h2 class="card-title">{part.name}</h2>

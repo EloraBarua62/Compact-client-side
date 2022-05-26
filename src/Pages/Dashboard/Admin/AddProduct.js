@@ -30,7 +30,7 @@ const AddProduct = () => {
                         price: data.price
                     }
 
-                    fetch(`http://localhost:4000/parts`, {
+                    fetch(`https://shielded-castle-46219.herokuapp.com/parts`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -148,7 +148,7 @@ const AddProduct = () => {
                                 </div>
 
                             </label>
-                            <input type="submit" class="input input-bordered w-full max-w-xs my-2 hover:bg-black hover:text-white" />
+                            <input type="submit" class="input input-bordered w-full max-w-xs my-2 font-medium text-lg bg-purple-600 text-white hover:bg-purple-300 hover:text-black" />
 
                         </form>
 

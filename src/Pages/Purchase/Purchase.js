@@ -33,7 +33,7 @@ const Purchase = () => {
         }
 
         console.log(order);
-        fetch('http://localhost:4000/order', {
+        fetch('https://shielded-castle-46219.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

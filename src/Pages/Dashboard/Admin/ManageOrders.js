@@ -5,7 +5,7 @@ import DeleteOrder from './DeleteOrder';
 
 const ManageOrders = () => {
 
-    const { data: orders, isLoading } = useQuery('manageOrders', () => fetch('http://localhost:4000/manage_orders')
+    const { data: orders, isLoading } = useQuery('manageOrders', () => fetch('https://shielded-castle-46219.herokuapp.com/manage_orders')
         .then(res => res.json()))
 
     const [removeOrder, setRemoveOrder] = useState(null);

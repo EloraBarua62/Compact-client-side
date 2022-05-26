@@ -1,4 +1,4 @@
-import {React,useState,useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
@@ -9,16 +9,16 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const MyOrders = () => {
-    const [user, loading] = useAuthState(auth); 
+    const [user, loading] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate()
 
-    const url = `http://localhost:4000/my_orders?email=${user?.email}`
-    
+    const url = `https://shielded-castle-46219.herokuapp.com/my_orders?email=${user?.email}`
 
-    useEffect(()=>{
-        fetch(url,{
-            method:'GET',
+
+    useEffect(() => {
+        fetch(url, {
+            method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -34,12 +34,12 @@ const MyOrders = () => {
 
                 return res.json()
             })
-        .then(data =>{
-            console.log(data);
-            setOrders(data);
-        })
-    },[navigate,url])
-    
+            .then(data => {
+                console.log(data);
+                setOrders(data);
+            })
+    }, [navigate, url])
+
 
     // const { data: orders, isLoading, refetch } = useQuery('my_order', 
     // () => fetch(url)
@@ -70,7 +70,7 @@ const MyOrders = () => {
                                 key={order._id}
                                 order={order}
                                 index={index}
-                                // refetch={refetch}
+                            // refetch={refetch}
                             ></SingleOrder>)
                         }
                     </tbody>

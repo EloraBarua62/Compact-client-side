@@ -1,14 +1,14 @@
 const { useState, useEffect } = require("react")
 
-const useToken = userInfo =>{
+const useToken = userInfo => {
     const [token, setToken] = useState('');
 
-    useEffect(()=>{
+    useEffect(() => {
         const email = userInfo?.user?.email;
         const currentUser = { email: email };
 
-        if(email){
-            const url = `http://localhost:4000/user/${email}`;
+        if (email) {
+            const url = `https://shielded-castle-46219.herokuapp.com/user/${email}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -24,7 +24,7 @@ const useToken = userInfo =>{
 
                 })
         }
-    },[userInfo]);
+    }, [userInfo]);
     return [token];
 }
 

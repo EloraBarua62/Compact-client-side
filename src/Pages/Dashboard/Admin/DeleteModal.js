@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteModal = ({ removePart, setRemovePart }) => {
     console.log(removePart)
     const confirmDelete = id => {
-        const url = `http://localhost:4000/manage_products/${id}`;
+        const url = `https://shielded-castle-46219.herokuapp.com/manage_products/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

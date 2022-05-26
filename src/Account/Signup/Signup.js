@@ -142,11 +142,13 @@ const Signup = () => {
                         </div>
                     </form>
                     <div class="divider-vertical">OR</div>
-                    <div>
+                    <div className='flex justify-center gap-2'>
+                        <h2 className='text-xl font-bold text-blue-900'>Sign up</h2>
                         <button onClick={() => signInWithGoogle()}>
-                            <img src={google} alt="" className='w-10 h-10 ' />
+                            <img src={google} alt="" className='w-8 h-8' />
                         </button>
                     </div>
+                    <Link to='/login' className='text-purple-700 font-medium'>Already have an account?</Link>
                 </div>
             </div>
            

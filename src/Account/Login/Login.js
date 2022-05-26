@@ -100,7 +100,7 @@ const Login = () => {
                             <img src={google} alt="" className='w-8 h-8' />
                         </button>
                     </div>
-                    <Link to='/signup'>New to COMPACT?</Link>
+                    <Link to='/signup' className='text-purple-700 font-medium pt-2'>New to COMPACT?</Link>
                     
                 </div>
             </div>

@@ -5,7 +5,7 @@ const usePartsId = id => {
     const [part, setPart] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:4000/parts/${id}`)
+        fetch(`https://shielded-castle-46219.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => setPart(data))
     }, [id]);

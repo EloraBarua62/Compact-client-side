@@ -31,8 +31,8 @@ const AddReview = () => {
                         rating: data.rating
                     }
 
-                    fetch(`http://localhost:4000/user_rating/${user?.email}`, {
-                        method: 'PUT',
+                    fetch(`https://shielded-castle-46219.herokuapp.com/user_rating`, {
+                        method: 'POST',
                         headers: {
                             'content-type': 'application/json',
                         },
@@ -105,7 +105,7 @@ const AddReview = () => {
 
                                 </div>
                             </label>
-                            <input type="submit" class="input input-bordered w-full max-w-xs my-2 hover:bg-black hover:text-white" />
+                            <input type="submit" class="input input-bordered w-full max-w-xs my-2  font-medium text-lg bg-purple-600 text-white hover:bg-purple-300 hover:text-black" />
 
                         </form>
 
