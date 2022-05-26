@@ -22,14 +22,8 @@ const Signup = () => {
     const [message,SetMessage] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const navigate = useNavigate();
-    const token = useToken(user || guser)
+    
 
-    useEffect(()=>{
-        if(token){
-            navigate('/');
-        }
-    },[token,navigate])
 
     const onSubmit = async data => {
         const email = data.email;
@@ -41,7 +35,6 @@ const Signup = () => {
             await createUserWithEmailAndPassword(email,password);
             await updateProfile({ displayName: data.name });
             toast.success('User created successfully');
-
         }
         else{
             SetMessage("Password didn't match");
@@ -49,11 +42,23 @@ const Signup = () => {
         
     };
 
+    const navigate = useNavigate();
+    const [token] = useToken(user || guser);
+    useEffect(() => {
+        if (token) {
+            navigate('/');
+        }
+    }, [token, navigate])
+
     if(loading || gloading)
         return <Loading></Loading>;
 
     if(error || gerror)
         SetMessage(error.message);
+
+
+
+    
 
     return (
         <div className='flex justify-center items-center h-screen'>

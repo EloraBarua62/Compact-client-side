@@ -4,31 +4,50 @@ import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
 import SingleOrder from './SingleOrder';
 import Loading from '../../../Shared/Loading'
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyOrders = () => {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth); 
+    const [orders, setOrders] = useState([]);
+    const navigate = useNavigate()
+
     const url = `http://localhost:4000/my_orders?email=${user?.email}`
-    const [orders , setOrders] = useState([])
+    
 
     useEffect(()=>{
-        fetch(url)
-        .then(res => res.json())
+        fetch(url,{
+            method:'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                console.log('res', res);
+                if (res.status === 401 || res.status === 403) {
+                    toast.warning('Your access has been cancaled')
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/');
+                }
+
+                return res.json()
+            })
         .then(data =>{
             console.log(data);
             setOrders(data);
-            // const accessToken = data.token;
-            // localStorage.setItem('accessToken',accessToken);
         })
-    },[url])
+    },[navigate,url])
     
 
     // const { data: orders, isLoading, refetch } = useQuery('my_order', 
     // () => fetch(url)
     // .then(res => res.json()))
 
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h1 className='text-xl font-bold'>All orders list</h1>

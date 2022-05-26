@@ -18,7 +18,7 @@ const RatingReview = () => {
             <h1 className='text-3xl font-bold'>" Preview what our user say "</h1>
             <div className='px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    ratings.map(rating => <div
+                    ratings.map(rating => rating.rating && <div
                         class="card w-96 bg-base-100 shadow-2xl py-2">
                         <div class="avatar flex justify-center">
                             <div class="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
