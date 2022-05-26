@@ -31,8 +31,8 @@ const AddReview = () => {
                         rating: data.rating
                     }
 
-                    fetch('http://localhost:4000/user', {
-                        method: 'POST',
+                    fetch(`http://localhost:4000/user_rating/${user?.email}`, {
+                        method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
                         },
@@ -41,13 +41,15 @@ const AddReview = () => {
                         .then(res => res.json())
                         .then(inserted => {
                             console.log(inserted)
-                            if (inserted.insertedId) {
-                                toast.success('Rating and review posted successfully')
-                                reset();
-                            }
-                            else {
-                                toast.error("Failed to post rating and review")
-                            }
+                            toast.success('Rating and review posted successfully')
+                            reset();
+                            // if (inserted.insertedId) {
+                            //     toast.success('Rating and review posted successfully')
+                            //     reset();
+                            // }
+                            // else {
+                            //     toast.error("Failed to post rating and review")
+                            // }
                         })
 
                 }
@@ -60,7 +62,7 @@ const AddReview = () => {
                     <div class="card-body">
                         <h2 class="text-3xl font-bold">Add Rating and Review</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className='flex-col'>
-                            
+
                             <textarea
                                 class="textarea textarea-bordered w-full max-w-2xl my-2"
                                 placeholder='Review'
@@ -93,7 +95,7 @@ const AddReview = () => {
                                         message: 'Upload Image'
                                     }
                                 })} />
-                            
+
                             <label class="label">
                                 <div>
                                     {errors.name?.type === 'required' && <span class="label-text-alt text-red-600">{errors.name.message}</span>}

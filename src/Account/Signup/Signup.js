@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import { toast, ToastContainer } from 'react-toastify';
 import Loading from '../../Shared/Loading';
-import google from '../../images/GoogleIcon.ico'
+import google from '../../images/GoogleIcon.ico';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const [
@@ -20,6 +22,14 @@ const Signup = () => {
     const [message,SetMessage] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const navigate = useNavigate();
+    const token = useToken(user || guser)
+
+    useEffect(()=>{
+        if(token){
+            navigate('/');
+        }
+    },[token,navigate])
 
     const onSubmit = async data => {
         const email = data.email;

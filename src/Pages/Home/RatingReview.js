@@ -5,7 +5,7 @@ import Rating from 'react-rating';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const RatingReview = () => {
+const RatingReview = () => { 
 
     const { data: ratings, isLoading } = useQuery('user_rating', () => fetch('http://localhost:4000/user').then(res => res.json()))
     console.log(ratings);
@@ -16,13 +16,13 @@ const RatingReview = () => {
     return (
         <div className='flex-col justify-center my-20 bg-blue-50 py-10'>
             <h1 className='text-3xl font-bold'>" Preview what our user say "</h1>
-            <div className='w-50 px-10'>
+            <div className='px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     ratings.map(rating => <div
                         class="card w-96 bg-base-100 shadow-2xl py-2">
                         <div class="avatar flex justify-center">
                             <div class="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={rating?.image} />
+                                <img src={rating.img} />
                             </div>
                         </div>
                         <div class="card-body">

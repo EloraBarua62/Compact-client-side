@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const AddProduct = () => {
-    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const imageAPIKey = 'a693f93ac43fe53804e6101b2d7eafaa';
 
 
     const onSubmit = async data => {
         const formData = new FormData();
-        const img = data.image[0];        
+        const img = data.image[0];
         formData.append('image', img);
 
         const url = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`;
@@ -23,7 +23,7 @@ const AddProduct = () => {
                     const image = result.data.url;
                     const part = {
                         name: data.name,
-                        img:image,
+                        img: image,
                         description: data.description,
                         minimum_order: data.minimum_order,
                         available_quantity: data.available_quantity,
@@ -116,7 +116,7 @@ const AddProduct = () => {
                                 })
                                 } />
 
-                                <input
+                            <input
                                 type="file"
                                 class="input input-bordered w-full max-w-2xl my-2"
                                 {...register("image", {
@@ -132,26 +132,26 @@ const AddProduct = () => {
                                 </div>
                                 <div>
                                     {errors.description?.type === 'required' && <span class="label-text-alt text-red-600">{errors.description.message}</span>}
-                                    
+
                                 </div>
                                 <div>
-                                    {errors.available_quantity?.type === 'required' && <span class="label-text-alt text-red-600">{errors.available_quantity.message}</span>}                   
+                                    {errors.available_quantity?.type === 'required' && <span class="label-text-alt text-red-600">{errors.available_quantity.message}</span>}
                                 </div>
                                 <div>
-                                    {errors.minimum_order?.type === 'required' && <span class="label-text-alt text-red-600">{errors.minimum_order.message}</span>}                   
+                                    {errors.minimum_order?.type === 'required' && <span class="label-text-alt text-red-600">{errors.minimum_order.message}</span>}
                                 </div>
                                 <div>
-                                    {errors.price?.type === 'required' && <span class="label-text-alt text-red-600">{errors.price.message}</span>}                   
+                                    {errors.price?.type === 'required' && <span class="label-text-alt text-red-600">{errors.price.message}</span>}
                                 </div>
                                 <div>
-                                    {errors.img?.type === 'required' && <span class="label-text-alt text-red-600">{errors.img.message}</span>}                   
+                                    {errors.img?.type === 'required' && <span class="label-text-alt text-red-600">{errors.img.message}</span>}
                                 </div>
 
                             </label>
                             <input type="submit" class="input input-bordered w-full max-w-xs my-2 hover:bg-black hover:text-white" />
-                            
+
                         </form>
-                        
+
                     </div>
                 </div>
 

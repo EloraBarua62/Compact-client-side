@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
 import google from '../../images/GoogleIcon.ico';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [
@@ -20,7 +21,14 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     let errorMessage;
 
-    // Foem submit
+
+    // AccessToken check
+    const [token] = useToken(user || guser);
+    useEffect(() => {
+        if (token) { navigate(from, { replace: true }); }
+    }, [token, from, navigate])
+
+    // Form submit
     const onSubmit = data => {
         const email = data.email
         const password = data.password;
@@ -31,11 +39,7 @@ const Login = () => {
     if(loading || gloading){
         return <Loading></Loading>;
     }
-        
-    if(user || guser){
-        navigate(from, { replace: true });
-    }
-
+           
     if (error || gerror) {
         errorMessage = <p className='text-red-600'>{error.message}</p>
     }
