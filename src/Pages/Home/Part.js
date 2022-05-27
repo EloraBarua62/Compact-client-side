@@ -13,7 +13,7 @@ const Part = ({part}) => {
             <figure><img src={part.img} alt="Shoes" /></figure>
             <div class="card-body text-left">
                 <h2 class="card-title">{part.name}</h2>
-                <p>{part.description}</p>
+                <p className='text-lg'>{part.description}</p>
                 <h2 class="text-lg">Availability : {part.available_quantity}</h2>
                 <h2 class="text-md">Minimum order : {part.minimum_order}</h2>
                 

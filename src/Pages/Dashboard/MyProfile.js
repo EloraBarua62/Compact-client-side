@@ -34,13 +34,14 @@ const MyProfile = () => {
                                 placeholder='User Name'
                                 {...register("name")
                                 } />
-                            <textarea
+                            <input
+                                type="text"
                                 class="textarea textarea-bordered w-full max-w-2xl my-2"
                                 placeholder='Email'
                                 {...register("email")
                                 } />
                             <input
-                                type="number"
+                                type="text"
                                 class="input input-bordered w-full max-w-2xl my-2"
                                 placeholder='Education'
                                 {...register("education", {
@@ -51,7 +52,7 @@ const MyProfile = () => {
                                 })
                                 } />
                             <input
-                                type="number"
+                                type="text"
                                 class="input input-bordered w-full max-w-2xl my-2"
                                 placeholder='Location'
                                 {...register("location", {
@@ -62,15 +63,10 @@ const MyProfile = () => {
                                 })
                                 } />
                             <input
-                                type="number"
+                                type="text"
                                 class="input input-bordered w-full max-w-2xl my-2"
                                 placeholder='Phone number'
-                                {...register("phone", {
-                                    required: {
-                                        value: true,
-                                        message: 'Phone number is required'
-                                    }
-                                })
+                                {...register("phone")
                                 } />
 
                             <input

@@ -1,9 +1,13 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
+import Loading from '../../../Shared/Loading';
 
 const AdminActivity = ({ user, index, refetch }) => {
 
     const { email, role } = user;
+    
 
     const makeAdmin = () => {
         fetch(`https://shielded-castle-46219.herokuapp.com/user/admin/${email}`, {
@@ -33,6 +37,8 @@ const AdminActivity = ({ user, index, refetch }) => {
         // })
 
     }
+
+    
     return (
         <tr class="hover">
 

@@ -38,7 +38,7 @@ const MyOrders = () => {
                 console.log(data);
                 setOrders(data);
             })
-    }, [navigate, url])
+    }, [navigate, url,user])
 
 
     // const { data: orders, isLoading, refetch } = useQuery('my_order', 

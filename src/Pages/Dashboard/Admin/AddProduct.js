@@ -1,10 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
+import Loading from '../../../Shared/Loading';
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const imageAPIKey = 'a693f93ac43fe53804e6101b2d7eafaa';
+
 
 
     const onSubmit = async data => {
@@ -52,6 +56,8 @@ const AddProduct = () => {
                 }
             })
     }
+
+    
 
     return (
         <div>
