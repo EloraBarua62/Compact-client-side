@@ -50,33 +50,34 @@ const MyOrders = () => {
     }
     return (
         <div>
-            <h1 className='text-xl font-bold'>All orders list</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th>Serial no</th>
-                            <th>Product name</th>
-                            <th>Product image</th>
-                            <th>Quantity</th>
-                            <th>User info</th>
-                            <th>Payment</th>
+            {orders.length ? <>
+                <h1 className='text-xl font-bold py-5'>All orders list</h1>
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>Serial no</th>
+                                <th>Product name</th>
+                                <th>Product image</th>
+                                <th>Quantity</th>
+                                <th>User info</th>
+                                <th>Payment</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders.map((order, index) => <SingleOrder
-                                key={order._id}
-                                order={order}
-                                index={index}
-                            // refetch={refetch}
-                            ></SingleOrder>)
-                        }
-                    </tbody>
-                </table>
-            </div>
-
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders.map((order, index) => <SingleOrder
+                                    key={order._id}
+                                    order={order}
+                                    index={index}
+                                // refetch={refetch}
+                                ></SingleOrder>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </> : <h1 className='text-3xl font-bold  py-10'>Check dashboard options on the left side</h1>}
         </div>
     );
 };

@@ -27,8 +27,9 @@ const SingleOrder = ({order,index,refetch}) => {
                 </div>
             </td>
             <td>
-                {/* {part.price && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-success btn-xs'>Pay</button></Link>} */}
-                {/* {(order.price && order.paid) && <span className='text-success'>paid</span>} */}
+                {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-success btn-sm text-base font-bold'>Pay</button></Link>}
+                {(order.price && order.paid) && <span className='text-purple-700 text-lg font-bold'>PAID</span>}
+               
             </td>
         </tr>
     );

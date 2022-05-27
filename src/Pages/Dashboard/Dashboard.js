@@ -11,7 +11,7 @@ const Dashboard = () => {
         <div class="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content bg-slate-100 p-4">
-                <h1 className='text-3xl font-bold'>DashBoard</h1>
+                <h1 className='text-4xl font-bold text-purple-900 py-10'>EXPLORE DASHBOARD</h1>
                 {/* <!-- Page content here --> */}
                 {/* <label for="dashboard-sidebar" class="btn btn-primary drawer-button">Open drawer</label> */}
                 <Outlet></Outlet>
