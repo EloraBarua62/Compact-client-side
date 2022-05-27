@@ -76,7 +76,7 @@ const Login = () => {
                             })
                             } />
                         
-                        <input type="submit" class="input input-bordered w-full max-w-xs my-2 hover:bg-black hover:text-white" value='Login'/>
+                        <input type="submit" class="input input-bordered w-full max-w-xs my-2 font-medium text-lg bg-purple-600 text-white hover:bg-purple-800" value='Login'/>
 
                         <label class="label">
                             

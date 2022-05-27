@@ -6,7 +6,10 @@ const DeleteModal = ({ removePart, setRemovePart }) => {
     const confirmDelete = id => {
         const url = `https://shielded-castle-46219.herokuapp.com/manage_products/${id}`;
         fetch(url, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(response => response.json())
             .then(data => {
@@ -33,7 +36,7 @@ const DeleteModal = ({ removePart, setRemovePart }) => {
                     <h3 class="font-bold text-lg">Are you sure you want to delete?</h3>
                     {/* <button onClick={() => confirmDelete(removePart._id)} className='btn btn-error'>Yes</button>*/}
                     <div class="modal-action">
-                        <button onClick={() => confirmDelete(removePart._id)} for="parts-modal" >Yes</button>
+                        <button onClick={() => confirmDelete(removePart._id)} for="parts-modal" className='font-medium text-lg p-3 bg-purple-600 text-white hover:bg-purple-800'>Yes</button>
                     </div>
                 </div>
             </div>

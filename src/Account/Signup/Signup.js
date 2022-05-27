@@ -136,7 +136,7 @@ const Signup = () => {
                             </div>
                             
                         </label>
-                        <input type="submit" class="input input-bordered w-full max-w-xs my-2 hover:bg-black hover:text-white"/>
+                        <input type="submit" class="input input-bordered w-full max-w-xs my-2 font-medium text-lg bg-purple-600 text-white hover:bg-purple-800"/>
                         <div>
                             <p className='text-md font-semibold text-red-700'>{message && message}</p>
                         </div>

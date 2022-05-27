@@ -17,7 +17,7 @@ const Question = () => {
             <h1 className='text-4xl font-bold text-slate-800 pb-10'>Frequently ask question</h1>
         <div className='flex justify-center items-center h-96'>
             
-                <div className='text-2xl bg-slate-200 p-20'>
+                <div className='text-2xl bg-slate-200 p-20 border-8 border-slate-800'>
                 <Fragment>
                     <Accordion open={open === 1} onClick={() => handleOpen(1)}>
                         <AccordionHeader>Can rural people get home delivery?</AccordionHeader>

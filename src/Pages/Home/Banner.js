@@ -2,10 +2,10 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import image1 from '../../images/bram-naus-N1gUD_dCvJE-unsplash.jpg'
-import image2 from '../../images/christian-wiediger-3GUW88tRmv8-unsplash.jpg'
-import image3 from '../../images/daniel-lezuch-I4DcRJ_Evd8-unsplash.jpg'
-import image4 from '../../images/nakul-QxPRz2oTOWo-unsplash.jpg'
+import image1 from '../../images/image1.jpg'
+import image2 from '../../images/image2.jpg'
+import image3 from '../../images/image3.jpg'
+import image4 from '../../images/image4.jpg'
 
 const Banner = () => {
     return (

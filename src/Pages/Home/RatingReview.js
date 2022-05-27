@@ -15,7 +15,7 @@ const RatingReview = () => {
     }
     return (
         <div className='w-full bg-purple-100 py-20'>
-            <h1 className='text-3xl font-bold text-center pb-8'>" Preview what our user say "</h1>
+            <h1 className='text-3xl font-bold text-center pb-8'>"See what our user say "</h1>
             <div className='flex justify-center'>
                 <div className='px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                     {

@@ -20,11 +20,11 @@ const MyProfile = () => {
             .then(data => toast.success('Profile updated'))
     }
     return (
-        <div className='p-20'>
-            <h1 className='text-2xl font bold p-3'>User:{user?.displayName}</h1>
-            <h1 className='text-xl font bold p-3'>Email{user?.email}</h1>
+        <div className='my-10'>
+            <h1 className='text-2xl font bold '>User:{user?.displayName}</h1>
+            <h1 className='text-xl font bold '>Email:{user?.email}</h1>
             <div className='flex justify-center items-center h-screen'>
-                <div class="card w-9/12 bg-base-100 shadow-xl">
+                <div class="card sm:max-w-lg bg-base-100 shadow-xl">
                     <div class="card-body">
                         <h2 class="text-3xl font-bold">User Info Form</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className='flex-col'>
@@ -85,7 +85,7 @@ const MyProfile = () => {
 
 
 
-                            <input type="submit" class="input input-bordered w-full max-w-xs my-2 font-medium text-lg bg-purple-600 text-white hover:bg-purple-300 hover:text-black" />
+                            <input type="submit" class="input input-bordered w-full max-w-xs my-2 font-medium text-lg bg-purple-600 text-white hover:bg-purple-800 " />
 
                         </form>
 

@@ -37,7 +37,7 @@ const Payment = () => {
                         </div>
                     </div>
                     <h2 class="text-center text-lg">Quantity : {order?.quantity}</h2>
-                    <button className=' btn bg-green-600 p-2 text-lg font-bold text-white'>Pay : {order?.price}</button>
+                    <p className='  bg-green-600 p-2 text-lg font-bold text-white'>Pay : {order?.price}</p>
                 </div>
             </div>
             <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100 mt-10">

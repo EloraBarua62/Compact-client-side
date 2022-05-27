@@ -105,7 +105,7 @@ const AddReview = () => {
 
                                 </div>
                             </label>
-                            <input type="submit" class="input input-bordered w-full max-w-xs my-2  font-medium text-lg bg-purple-600 text-white hover:bg-purple-300 hover:text-black" />
+                            <input type="submit" class="input input-bordered w-full max-w-xs my-2  font-medium text-lg bg-purple-600 text-white hover:bg-purple-800 " />
 
                         </form>
 

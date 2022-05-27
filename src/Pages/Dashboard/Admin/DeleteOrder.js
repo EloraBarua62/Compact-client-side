@@ -6,7 +6,10 @@ const DeleteOrder = ({ removeOrder, setRemoveOrder }) => {
     const confirmDelete = id => {
         const url = `https://shielded-castle-46219.herokuapp.com/manage_order/${id}`;
         fetch(url, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(response => response.json())
             .then(data => {
@@ -33,8 +36,8 @@ const DeleteOrder = ({ removeOrder, setRemoveOrder }) => {
 
                     <h3 class="font-bold text-lg">Do you want to cancel the order?</h3>
                     {/* <button onClick={() => confirmDelete(removeOrder._id)} className='btn btn-error'>Yes</button>*/}
-                    <div class="modal-action">
-                        <button onClick={() => confirmDelete(removeOrder._id)} for="order-modal" >Yes</button>
+                    <div class="modal-action"> 
+                        <button onClick={() => confirmDelete(removeOrder._id)} for="order-modal" className='font-medium text-lg p-3 bg-purple-600 text-white hover:bg-purple-800'>Yes</button>
                     </div>
                 </div>
             </div>

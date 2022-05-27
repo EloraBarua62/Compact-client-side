@@ -6,7 +6,7 @@ const useParts = () => {
         fetch(`https://shielded-castle-46219.herokuapp.com/parts`)
             .then(res => res.json())
             .then(data => setParts(data))
-    }, [])
+    }, [parts])
     return [parts];
 }
 
