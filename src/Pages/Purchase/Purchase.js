@@ -67,9 +67,9 @@ const Purchase = () => {
     return (
         <div className='flex-col justify-center my-20'>
             <h1 className='text-4xl font-bold text-purple-700 mb-5'>Product Details</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 border-2 rounded-md shadow-2xl shadow-purple-500 mx-10 px-5'>
-                <img src={part.img} alt="" className='w-3/4'/>
-                <div className='my-auto'>
+            <div className='w-3/5 py-20 lg:flex lg:justify-between lg:items-center border-2 rounded-md shadow-2xl shadow-purple-500 mx-auto px-10'>
+                <img src={part.img} alt="" className='mx-auto'/>
+                <div className='my-auto mx-auto'>
                     <h1 className='text-2xl font-medium'>Product name : {part.name}</h1>
                     <p className='text-xl font-medium'>Description : {part.description}</p>
                     <h1 className='text-lg font-medium'>Available quantity : {part.available_quantity}</h1>
@@ -82,7 +82,7 @@ const Purchase = () => {
             <div className='flex w-full justify-center mt-36'>
                 <div class="card w-1/2 bg-base-100 shadow-2xl shadow-purple-500">
                     <div class="card-body">
-                        <h3 class="font-bold text-lg">Purcheser Information</h3>
+                        <h3 class="font-bold text-2xl">Purcheser Information</h3>
                         <form onSubmit={handleForm} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                             <input type="text" name='name' disabled defaultValue={user?.displayName} placeholder="Name" class="input input-bordered w-full max-w-xs" />
                             <input type="text" name='email' disabled defaultValue={user?.email} placeholder="Email" class="input input-bordered w-full max-w-xs" />
