@@ -7,9 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RatingReview = () => {
   const { data: ratings, isLoading } = useQuery("user_rating", () =>
-    fetch("https://compact-server-side.onrender.com/ratings").then((res) =>
-      res.json()
-    )
+    fetch("https://compact-server-side.onrender.com/ratings")
+    .then((res) =>res.json())
   );
   console.log(ratings);
 
