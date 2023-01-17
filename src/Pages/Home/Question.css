@@ -1,4 +1,5 @@
 #overlay {
     background-color: rgba(50, 70, 80, 0.877);
     background-blend-mode: soft-light;
+    width: 100%;
 }

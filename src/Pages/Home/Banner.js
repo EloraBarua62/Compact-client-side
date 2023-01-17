@@ -10,18 +10,18 @@ import image4 from '../../images/image4.jpg'
 const Banner = () => {
     return (
         <Carousel infiniteLoop useKeyboardArrows autoPlay interval={5000} showThumbs={false} showStatus={false}>
-            <div>
-                <img src={image1} className='h-[300px] md:h-[500px] lg:h-[600px] '/>
+            <div className='w-full h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden'>
+                <img alt='banner' src={image1} className='w-full  h-full object-cover  '/>
             </div>
-            <div>
-                <img src={image2} className='h-[300px] md:h-[500px] lg:h-[600px]' />
+            <div className='w-full h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden'>
+                <img alt='banner' src={image2} className='w-full  h-full object-cover ' />
             </div>
-            <div>
-                <img src={image3} className='h-[300px] md:h-[500px] lg:h-[600px]'/>
+            <div className='w-full h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden'>
+                <img alt='banner' src={image3} className='w-full h-full  object-cover '/>
                 
             </div>
-            <div>
-                <img src={image4} className='h-[300px] md:h-[500px] lg:h-[600px]'/>
+            <div className='w-full h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden'>
+                <img alt='banner' src={image4} className='w-full h-full  object-cover '/>
                 
             </div>
         </Carousel>
