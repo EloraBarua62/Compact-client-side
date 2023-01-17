@@ -1,53 +1,64 @@
-import React from 'react';
-import { toast } from 'react-toastify';
+import React from "react";
+import { toast } from "react-toastify";
 
 const DeleteModal = ({ removePart, setRemovePart }) => {
-    console.log(removePart)
-    
-    const confirmDelete = id => {
-        const url = `https://shielded-castle-46219.herokuapp.com/manage_products/${id}`;
-        fetch(url, {
-            method: 'DELETE',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                toast.success('Deletion complete');
-                setRemovePart(null);
-            })
-    }
-    return (
-        <div>
+  console.log(removePart);
 
-            <input type="checkbox" id="parts-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="parts-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className='text-2xl font-bold'>Item</h3>
-                    <h3 className='text-lg font-bold'>ID : {removePart._id}</h3>
-                    <h3 className='text-lg font-bold'>Product name : {removePart.name}</h3>
-                    <div class="avatar">
-                        <div class="w-20 rounded">
-                            <img src={removePart.img} alt="compact" />
-                        </div>
-                    </div>
-
-                    <h3 class="font-bold text-lg">Are you sure you want to delete?</h3>
-                    {/* <button onClick={() => confirmDelete(removePart._id)} className='btn btn-error'>Yes</button>*/}
-                    <div class="modal-action">
-                        <button onClick={() => confirmDelete(removePart._id)} for="parts-modal" className='font-medium text-lg p-3 bg-purple-600 text-white hover:bg-purple-800'>Yes</button>
-                    </div>
-                </div>
+  const confirmDelete = (id) => {
+    const url = `https://compact-server-side.onrender.com/manage_products/${id}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        toast.success("Deletion complete");
+        setRemovePart(null);
+      });
+  };
+  return (
+    <div>
+      <input type="checkbox" id="parts-modal" class="modal-toggle" />
+      <div class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <label
+            for="parts-modal"
+            class="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-2xl font-bold">Item</h3>
+          <h3 className="text-lg font-bold">ID : {removePart._id}</h3>
+          <h3 className="text-lg font-bold">
+            Product name : {removePart.name}
+          </h3>
+          <div class="avatar">
+            <div class="w-20 rounded">
+              <img src={removePart.img} alt="compact" />
             </div>
+          </div>
 
+          <h3 class="font-bold text-lg">Are you sure you want to delete?</h3>
+          {/* <button onClick={() => confirmDelete(removePart._id)} className='btn btn-error'>Yes</button>*/}
+          <div class="modal-action">
+            <button
+              onClick={() => confirmDelete(removePart._id)}
+              for="parts-modal"
+              className="font-medium text-lg p-3 bg-purple-600 text-white hover:bg-purple-800"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
 
-            {/* <!-- The button to open modal -->
+      {/* <!-- The button to open modal -->
             <label for="my-modal" class="btn modal-button">open modal</label>
 
             {/* <!-- Put this part before </body> tag-- > */}
-            {/* <input type="checkbox" id="my-modal" class="modal-toggle" />
+      {/* <input type="checkbox" id="my-modal" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
                     <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
@@ -57,8 +68,8 @@ const DeleteModal = ({ removePart, setRemovePart }) => {
                     </div>
                 </div>
             </div> */}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default DeleteModal;
